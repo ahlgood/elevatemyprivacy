@@ -1,0 +1,59 @@
+:root{--cyan:#3ee6ff;--purple:#b56cff;--text:#fff;--muted:rgba(255,255,255,.78);--faint:rgba(255,255,255,.55);
+--card:rgba(255,255,255,.07);--line:rgba(255,255,255,.14);
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:#0c0726}
+body{margin:0;font-family:var(--font);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;
+background-color:#0c0726;background-repeat:no-repeat;
+background-image:radial-gradient(1000px 640px at 0% -10%,#3a1aa8 0%,rgba(58,26,168,0) 60%),radial-gradient(900px 640px at 110% 5%,#1a3fb8 0%,rgba(26,63,184,0) 55%)}
+a{color:var(--cyan)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+main{max-width:620px;margin:0 auto;padding:calc(40px + env(safe-area-inset-top)) 22px calc(36px + env(safe-area-inset-bottom))}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.hero{text-align:center;padding:8px 0 30px}
+.app-icon{width:112px;height:112px;border-radius:25px;box-shadow:0 14px 40px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08);display:block;margin:0 auto 20px}
+h1{font-size:40px;line-height:1.05;margin:0;letter-spacing:-.01em;font-weight:800}
+.tagline{margin:8px 0 0;font-size:19px;font-weight:600;color:#cfc6ff}
+.promise{margin:16px auto 0;max-width:30em;font-size:18px;color:var(--muted)}
+.cta{display:flex;align-items:center;justify-content:center;width:100%;max-width:360px;min-height:58px;margin:26px auto 0;padding:0 24px;border-radius:16px;
+font-size:18px;font-weight:700;text-decoration:none;color:#0c0726;background:linear-gradient(90deg,var(--cyan),var(--purple));box-shadow:0 10px 30px rgba(120,90,255,.35);cursor:pointer}
+.cta:active{transform:scale(.985)}
+.cta.is-soon{cursor:default;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.28);box-shadow:none;pointer-events:none}
+.cta-note{margin:10px 0 0;font-size:14px;color:var(--faint)}
+.req span{white-space:nowrap}
+.req{display:inline-block;max-width:100%;line-height:1.6;margin:18px 0 0;padding:7px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;color:var(--muted)}
+
+h2{font-size:21px;margin:0 0 14px;letter-spacing:-.005em}
+.section-h{margin:36px 0 14px}
+.card{background:linear-gradient(135deg,rgba(181,108,255,.16),rgba(62,230,255,.10));border:1px solid var(--line);border-radius:22px;padding:22px 20px}
+.steps,.points{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.steps li,.points li{display:flex;gap:14px;align-items:flex-start}
+.steps b,.points b{display:block;font-size:17px}
+.steps small,.points small{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+.num{flex:0 0 32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px;color:#0c0726;background:linear-gradient(135deg,var(--cyan),var(--purple))}
+.points li{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.pi{flex:0 0 28px;font-size:22px;line-height:1.2;text-align:center}
+
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0 16px}
+summary{cursor:pointer;list-style:none;padding:16px 28px 16px 0;font-weight:650;font-size:16px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:22px;font-weight:400;color:var(--faint)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--muted);font-size:15.5px}
+
+footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);text-align:center;font-size:15px;color:var(--faint)}
+footer p{margin:0 0 6px}
+footer a{text-decoration:none}
+.mail{font-size:14px}
+.credit{margin-top:14px !important;font-size:13px;color:rgba(255,255,255,.42)}
+
+@media (min-width:760px){
+  main{padding-top:72px}
+  .app-icon{width:128px;height:128px;border-radius:29px}
+  h1{font-size:52px}
+  .tagline{font-size:22px}
+  .points{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){.cta:active{transform:none}}
