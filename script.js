@@ -4,7 +4,7 @@
    ends in REPLACE_ME, every "Join the free beta" button shows
    "Beta link coming soon" and is disabled, so nothing broken is live.
    ===================================================================== */
-const BETA_LINK = "https://testflight.apple.com/join/REPLACE_ME";
+const BETA_LINK = "https://testflight.apple.com/join/278jDNac";
 
 (function () {
   var ready = BETA_LINK && BETA_LINK.indexOf("REPLACE_ME") === -1;
