@@ -49,7 +49,9 @@ section[id],article[id]{scroll-margin-top:18px}
 .changes b{color:var(--text)}
 .rel ul{padding-bottom:10px}
 .past{opacity:.92}
-.issues small b{color:var(--text);font-weight:650}
+.issues small b{display:inline;font-size:inherit;color:var(--text);font-weight:650}
+.check[hidden]{display:none}
+#update{margin-top:30px}
 .fb-ways{margin:0 0 14px}
 .way{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
 .way b{display:block;font-size:17px}
