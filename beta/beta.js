@@ -1,4 +1,4 @@
-/* ELEVATE Tester Hub: signup goes to Kit (form "ELEVATE Tester Updates"),
+/* ELEVATE Tester Hub: optional build-update email signup goes to Kit (form "ELEVATE Tester Updates"),
    feedback goes to Paul's private dashboard. No trackers, no cookies. */
 (function () {
   "use strict";
@@ -8,34 +8,26 @@
   function say(el, text, bad) { el.textContent = text; el.classList.toggle("err", !!bad); }
   function mark(input, bad) { if (bad) input.setAttribute("aria-invalid", "true"); else input.removeAttribute("aria-invalid"); }
 
-  /* ---- Join tester updates ---- */
+  /* ---- New build emails (optional; Kit form "ELEVATE Tester Updates", double opt-in) ---- */
   var jf = document.getElementById("join-form");
   if (jf) {
-    var name = document.getElementById("j-name"), email = document.getElementById("j-email"), phone = document.getElementById("j-phone");
-    var row = document.getElementById("j-consent-row"), box = document.getElementById("j-consent"), val = document.getElementById("j-consent-val");
+    var email = document.getElementById("j-email");
     var jst = jf.querySelector(".status"), jbtn = jf.querySelector("button[type=submit]");
-    var syncPhone = function () { var has = phone.value.trim().length > 0; row.hidden = !has; if (!has) box.checked = false; };
-    phone.addEventListener("input", syncPhone); syncPhone();
+    if (/[?&]confirmed=1/.test(location.search)) { var c = document.getElementById("j-confirmed"); if (c) c.hidden = false; }
 
     jf.addEventListener("submit", function (e) {
       e.preventDefault();
-      var n = name.value.trim(), em = email.value.trim(), ph = phone.value.trim();
-      mark(name, !n); mark(email, !EMAIL_RE.test(em));
-      if (!n) { say(jst, "Please add your first name.", true); name.focus(); return; }
-      if (!EMAIL_RE.test(em)) { say(jst, "Please check your email address.", true); email.focus(); return; }
-      if (ph && !box.checked) { say(jst, "To get texts, tick the box. Or clear the number to get email only.", true); box.focus(); return; }
-      if (ph && ph.replace(/\D/g, "").length < 10) { mark(phone, true); say(jst, "That mobile number looks short. Include the area code.", true); phone.focus(); return; }
-      mark(phone, false);
-      val.value = ph ? "Yes: agreed to occasional texts on " + new Date().toISOString().slice(0, 10) + " via elevatemyprivacy.com/beta" : "";
-      if (!ph) phone.value = "";
-      jbtn.disabled = true; say(jst, "Joining…");
+      var em = email.value.trim();
+      mark(email, !EMAIL_RE.test(em));
+      if (!EMAIL_RE.test(em)) { say(jst, em ? "Please check your email address." : "Add your email to get build updates. (Totally optional.)", true); email.focus(); return; }
+      jbtn.disabled = true; say(jst, "Signing you up…");
       fetch(jf.action, { method: "POST", body: new FormData(jf), headers: { Accept: "application/json" } })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
         .then(function (x) {
           if (x.j && x.j.status === "quarantined" && x.j.url) { say(jst, "One quick check to confirm you're human…"); window.location.href = x.j.url; return; }
           if (x.ok && (!x.j.status || x.j.status === "success")) {
-            say(jst, "You're on the list, " + n + "! We'll be in touch when there's something new.");
-            jf.reset(); syncPhone();
+            say(jst, "Almost done: check your inbox and tap the confirm link in the email.");
+            jf.reset();
           } else {
             say(jst, (x.j && x.j.errors && x.j.errors.messages && x.j.errors.messages.join(" ")) || "That didn't go through. Please try again.", true);
           }

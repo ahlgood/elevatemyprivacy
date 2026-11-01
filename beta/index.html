@@ -17,7 +17,7 @@
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="beta.css?v=2">
+<link rel="stylesheet" href="beta.css?v=3">
 </head>
 <body>
 <main>
@@ -29,35 +29,31 @@
     <p class="tagline">Thanks for testing ELEVATE AI</p>
     <p class="build-chip"><span class="live-dot" aria-hidden="true"></span>Build 8 is live in TestFlight</p>
     <nav class="jump" aria-label="On this page">
-      <a href="#join">Get updates</a><a href="#new">What's new</a><a href="#issues">Known issues</a><a href="#update">Update</a><a href="#feedback">Feedback</a>
+      <a href="#get">Get the beta</a><a href="#updates">Email updates</a><a href="#new">What's new</a><a href="#issues">Known issues</a><a href="#update">Update</a><a href="#feedback">Feedback</a>
     </nav>
   </header>
 
-  <section class="card join" id="join" aria-labelledby="join-h">
-    <h2 id="join-h">Join tester updates</h2>
-    <p class="lead">Apple doesn't tell us who's testing, so this is how we stay in touch. Get a short note when a new build is ready or there's something to try.</p>
+  <section class="card get" id="get" aria-labelledby="get-h">
+    <h2 id="get-h">Get the beta</h2>
+    <p class="lead">Open this link on your iPhone. It installs through Apple's free TestFlight app.</p>
+    <a class="cta" href="https://testflight.apple.com/join/278jDNac">Join the beta in TestFlight</a>
+    <p class="fine">Already testing? Open TestFlight to update.</p>
+  </section>
+
+  <section class="card join" id="updates" aria-labelledby="updates-h">
+    <span id="join" class="anchor" aria-hidden="true"></span>
+    <h2 id="updates-h">New build emails</h2>
+    <p class="lead">Want a heads-up when a new build is ready? Leave your email.</p>
+    <p class="status confirmed" id="j-confirmed" role="status" hidden>You're confirmed. We'll email you when a new build is out.</p>
     <form id="join-form" class="form" action="https://app.kit.com/forms/10118748/subscriptions" method="post" novalidate>
       <div class="field">
-        <label for="j-name">First name</label>
-        <input id="j-name" name="first_name" type="text" autocomplete="given-name" autocapitalize="words" required maxlength="60">
+        <label for="j-email">Email <span class="opt">optional</span></label>
+        <input id="j-email" name="email_address" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required maxlength="160" placeholder="you@example.com">
       </div>
-      <div class="field">
-        <label for="j-email">Email</label>
-        <input id="j-email" name="email_address" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required maxlength="160">
-      </div>
-      <div class="field">
-        <label for="j-phone">Mobile number <span class="opt">optional</span></label>
-        <input id="j-phone" name="fields[phone]" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="For the occasional text">
-      </div>
-      <label class="check" id="j-consent-row" hidden>
-        <input id="j-consent" type="checkbox">
-        <span>Yes, text me occasional ELEVATE beta updates at this number. A few texts a month at most. Msg &amp; data rates may apply. Reply STOP to opt out anytime. Consent isn't required to test.</span>
-      </label>
-      <input type="hidden" name="fields[sms_consent]" id="j-consent-val" value="">
       <input type="hidden" name="tags[]" value="25191573">
-      <button class="cta" type="submit">Join tester updates</button>
+      <button class="cta" type="submit">Email me when a new build is out</button>
       <p class="status" role="status" aria-live="polite"></p>
-      <p class="fine">Beta updates only, from Dr. Paul Hersh. Unsubscribe in one tap from any email. Your details are kept on our email service, never sold or shared. The app itself still collects nothing.</p>
+      <p class="fine">Optional. Only used for beta update emails. Unsubscribe anytime. Signing up happens here on the web; the app itself stays offline.</p>
     </form>
   </section>
 
@@ -153,6 +149,6 @@
   </footer>
 
 </main>
-<script src="beta.js?v=2"></script>
+<script src="beta.js?v=3"></script>
 </body>
 </html>

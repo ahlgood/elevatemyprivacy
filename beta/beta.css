@@ -60,3 +60,11 @@ section[id],article[id]{scroll-margin-top:18px}
 .fb{padding:20px 18px}
 @media (max-width:360px){.row2{grid-template-columns:1fr}}
 @media (min-width:760px){.hub-top{padding-top:10px}.back{top:-40px}}
+.get{text-align:center}
+.get .cta{margin:0 auto 10px}
+.get .fine{text-align:center}
+#updates{margin-top:14px;position:relative}
+.anchor{position:absolute;top:-18px}
+.status.confirmed{margin:0 0 14px;padding:10px 12px;border-radius:12px;background:rgba(77,255,158,.12);border:1px solid rgba(77,255,158,.35);color:#c9ffe0}
+.status.confirmed[hidden]{display:none}
+#updates .cta{font-size:17px;padding:0 14px}
