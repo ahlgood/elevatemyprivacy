@@ -13,7 +13,7 @@
   if (jf) {
     var email = document.getElementById("j-email");
     var jst = jf.querySelector(".status"), jbtn = jf.querySelector("button[type=submit]");
-    if (/[?&]confirmed=1/.test(location.search)) { var c = document.getElementById("j-confirmed"); if (c) c.hidden = false; }
+    if (/[?&]confirmed=1/.test(location.search)) { var c = document.getElementById("j-confirmed"); if (c) { c.hidden = false; document.getElementById("updates").scrollIntoView(); } }
 
     jf.addEventListener("submit", function (e) {
       e.preventDefault();
